@@ -1,0 +1,52 @@
+
+#Server configuration for the routing.
+server:
+  port: 8080
+  servlet:
+    context-path: /api
+
+spring:
+  application:
+    name: bid-management-system
+
+#Database Configuration
+  datasource:
+    url: jdbc:mysql://localhost:3306/
+    username: root
+    password: "@Akj123456"
+    driver-class-name: com.mysql.cj.jdbc.Driver
+
+    #Hikari Connection Pool Settings
+    hikari:
+      maximum-pool-size: 10
+      minimum-idle: 5
+      connection-timeout: 30000
+      idle-timeout: 600000
+
+  #Hibernate Configuration
+  jpa:
+    hibernate:
+      ddl-auto: update
+      show_sql: true
+      properties:
+        hibernate:
+          dialect: org.hibernate.dialect.MySQL8Dialect
+          format_sql: true
+
+
+  #JWT Configuration properties
+  jwt:
+    secret:
+    access-token-expiration: 3600000
+    refresh-token-expiration: 604800000
+
+
+
+  #Logging level configuration
+  logging:
+    level:
+      org.springframework.security: DEBUG
+      org.hibernate.SQL: DEBUG
+
+
+
